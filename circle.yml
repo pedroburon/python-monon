@@ -3,9 +3,10 @@ machine:
     version: 3.5.0
 test:
   pre:
-    - pip install mypy coverage
+    - pip install mypy coverage python-coveralls
   override:
     - python setup.py test
   post:
     - mypy monon
     - coverage html -d $CIRCLE_ARTIFACTS
+    - coveralls
