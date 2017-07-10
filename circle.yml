@@ -2,6 +2,10 @@ machine:
   python:
     version: 3.5.0
 test:
+  pre:
+    - pip install mypy coverage
+  override:
+    - python setup.py test
   post:
-    - pip install coverage
+    - mypy monon
     - coverage html -d $CIRCLE_ARTIFACTS
