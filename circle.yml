@@ -3,4 +3,5 @@ machine:
     version: 3.5.0
 test:
   post:
+    - pip install coverage
     - coverage html -d $CIRCLE_ARTIFACTS
